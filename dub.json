@@ -7,5 +7,6 @@
 	"libs": ["OpenVG"],
 	"versions-x86_64": ["UseAmd64Impl"],
 	"sourcePaths": ["openvg"],
-	"targetType": "library"
+	"targetType": "library",
+	"license": "GPL-2.0"
 }
