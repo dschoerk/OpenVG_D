@@ -1,5 +1,5 @@
 /* Converted to D from openvg.h by htod */
-module openvg.vg;
+module vg;
 /*
  * Copyright (c) 2007 Ivan Leben
  *

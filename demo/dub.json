@@ -9,7 +9,9 @@
 	"dependencies": {
 		"derelict-glfw3": "~>1.1.0",
 		"derelict-gl3": "~>1.0.12",
-		"dopenvg": "~>0.0.1"
-	}
+		"dopenvg": "~>0.0.2",
+	},
+	"sourcePaths": [
+		"source"
+	],
 }
-	

@@ -1,5 +1,5 @@
 /* Converted to D from vgu.h by htod */
-module openvg.vgu;
+module vgu;
 /*
  * Copyright (c) 2007 Ivan Leben
  *
@@ -23,7 +23,7 @@ module openvg.vgu;
 //C     #define _VGU_H
 
 //C     #include "openvg.h"
-import openvg.vg;
+import vg;
 
 //C     #define VGU_VERSION_1_0		1
 //C     #define VGU_VERSION_1_0_1	1

@@ -4,7 +4,7 @@
 	"copyright": "Copyright © 2015, dom",
 	"authors": ["Dominik Schörkhuber"],
 	"email": ["dschoerk@gmx.at"],
-	"libs": ["OpenVG"],
+
 	"targetType": "library",
 	"license": "GPL-2.0",
 	
@@ -12,7 +12,9 @@
 		"openvg/"
 	],
 	"importPaths": [
-		"inc/"
+		"openvg/"
 	],
 	"targetPath": "lib/",
+	"libs": ["dopenvg"],
+	"sourceFiles-windows-x86_64-dmd": ["lib/openvg.lib"],
 }
