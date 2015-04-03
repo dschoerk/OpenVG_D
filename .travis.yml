@@ -1,0 +1,5 @@
+language: d
+d:
+  - dmd-2.067
+script:
+ - dub build -a x86_64
