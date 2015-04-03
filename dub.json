@@ -1,0 +1,11 @@
+{
+	"name": "dopenvg",
+	"description": "OpenVG test project",
+	"copyright": "Copyright © 2015, dom",
+	"authors": ["Dominik Schörkhuber"],
+	"email": ["dschoerk@gmx.at"],
+	"libs": ["OpenVG"],
+	"versions-x86_64": ["UseAmd64Impl"],
+	"sourcePaths": ["openvg"],
+	"targetType": "library"
+}
