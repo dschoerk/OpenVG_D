@@ -1,0 +1,16 @@
+{
+	"name": "dopenvg",
+	"description": "OpenVG test project",
+	"copyright": "Copyright © 2015, dom",
+	"authors": ["Dominik Schörkhuber"],
+	"email": ["dschoerk@gmx.at"],
+	"libs": ["openvg/OpenVG", "openvg/dopenvg"],
+	"targetType": "executable",
+	"importPaths": ["../dopenvg"],
+	"versions-x86_64": ["UseAmd64Impl"],
+	"dependencies": {
+		"derelict-glfw3": "~>1.1.0",
+		"derelict-gl3": "~>1.0.12"
+	}
+}
+	
