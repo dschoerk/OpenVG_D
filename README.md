@@ -12,8 +12,8 @@ http://dlang.org/htod.html
 source: https://github.com/oggs91/OpenVG_D
 
 building:
-build with dub -> dub -a x86_64
-build with dmd -> dmd openvg\package.d openvg/vg.d openvg/vgu.d -w -m64 -lib -ofdopenvg -H
+- build with dub -> dub -a x86_64
+- build with dmd -> dmd openvg\package.d openvg/vg.d openvg/vgu.d -w -m64 -lib -ofdopenvg -H
 
 usage:
 interface files (*.di) are built by -H flag of dmd, those files can be used instead of the library sourcecode
