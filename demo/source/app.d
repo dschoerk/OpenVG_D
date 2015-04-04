@@ -1,6 +1,8 @@
 module app;
 
 import std.stdio;
+import std.random;
+import std.range;
 import derelict.glfw3.glfw3;
 import derelict.opengl3.gl;
 import openvg;
@@ -85,9 +87,31 @@ void main()
 	VGfloat clickX=0.0f;
 	VGfloat clickY=0.0f;
 
+	struct shape
+	{
+		float scale;
+		float x;
+		float y;
+	}
 	
+	shape[] shapes;
+	foreach(i; iota(0,10000))
+	{
+		float scale = uniform(0.1, 1);
+		float x = uniform(0,640);
+		float y = uniform(0,480);
+		
+		shapes ~= shape(scale, x, y);
+	}
+	
+	writeln(shapes.length);
+	
+	float time = 0;
 	while (true)  
 	{
+		float dtime = glfwGetTime() - time;
+		time = glfwGetTime();
+	
 		if ( glfwGetKey( window, GLFW_KEY_ESCAPE ) == GLFW_PRESS )
 			break;
 			
@@ -97,23 +121,30 @@ void main()
 		vgSetfv(VG_CLEAR_COLOR, cc);
 		vgClear(0,0,640,480);
 
-		vgSetfv(VG_STROKE_DASH_PATTERN, dash);
-		vgSeti(VG_STROKE_DASH_PHASE_RESET, VG_TRUE);
+		//vgSetfv(VG_STROKE_DASH_PATTERN, dash);
+		//vgSeti(VG_STROKE_DASH_PHASE_RESET, VG_TRUE);
 		
-		vgSetf(VG_STROKE_DASH_PHASE, phase);
+		//vgSetf(VG_STROKE_DASH_PHASE, phase);
 
-		vgSetf(VG_STROKE_LINE_WIDTH, 10.0f);
+		vgSetf(VG_STROKE_LINE_WIDTH, 5.0f);
 		vgSetf(VG_STROKE_JOIN_STYLE, joins[jindex]);
 		vgSetf(VG_STROKE_CAP_STYLE, caps[cindex]);
 
 		vgLoadIdentity();
-		vgTranslate(640/2,480/2);
-		vgScale(3 * sx, 3 * sy);
-		vgDrawPath(testPath, VG_FILL_PATH);
-		vgDrawPath(testPath, VG_STROKE_PATH);
-	
+		
+
+		foreach(shape s; shapes)
+		{
+			vgLoadIdentity();
+			vgTranslate(s.x,s.y);
+			vgScale(s.scale, s.scale);
+			//vgDrawPath(testPath, VG_FILL_PATH);
+			vgDrawPath(testPath, VG_STROKE_PATH);
+		}	
  
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+		
+		writeln(1/dtime);
 	}
 }
