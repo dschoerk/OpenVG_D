@@ -37,13 +37,13 @@ void main()
     VG_LINE_TO_REL, VG_LINE_TO_REL, VG_LINE_TO_REL, VG_LINE_TO_REL,
     VG_LINE_TO_REL, VG_LINE_TO_REL, VG_CLOSE_PATH ];
   
-	VGfloat data[] = [
+	VGfloat[] data = [
 	0,50, 15,-40, 45,0, -35,-20,
 	15,-40, -40,30, -40,-30, 15,40,
 	-35,20, 45,0 ];
 
-	VGfloat cstroke[] = [0.5,0.2,0.8, 0.6];
-	VGfloat cfill[] = [0.3,1.0,0.0, 0.6];
+	VGfloat[] cstroke = [0.5,0.2,0.8, 0.6];
+	VGfloat[] cfill = [0.3,1.0,0.0, 0.6];
 	checkVg();
 	auto testPath = vgCreatePath(VG_PATH_FORMAT_STANDARD, VG_PATH_DATATYPE_F, 1,0,0,0, VG_PATH_CAPABILITY_ALL);
 //	checkVg();
@@ -64,7 +64,7 @@ void main()
 
 	VGint jindex = 0;
 	VGint jsize = 3;
-	VGint joins[] = [
+	VGint[] joins = [
 	VG_JOIN_MITER,
 	VG_JOIN_BEVEL,
 	VG_JOIN_ROUND
@@ -72,7 +72,7 @@ void main()
 
 	VGint cindex = 2;
 	VGint csize = 3;
-	VGint caps[] = [
+	VGint[] caps = [
 	VG_CAP_BUTT,
 	VG_CAP_SQUARE,
 	VG_CAP_ROUND
@@ -91,8 +91,8 @@ void main()
 		if ( glfwGetKey( window, GLFW_KEY_ESCAPE ) == GLFW_PRESS )
 			break;
 			
-		VGfloat cc[] = [0,0,0,1];
-		VGfloat dash[] = [10,15,0,15];
+		VGfloat[] cc = [0,0,0,1];
+		VGfloat[] dash = [10,15,0,15];
 
 		vgSetfv(VG_CLEAR_COLOR, cc);
 		vgClear(0,0,640,480);
