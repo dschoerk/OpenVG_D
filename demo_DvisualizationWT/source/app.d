@@ -33,37 +33,12 @@ void main()
 	Window window = new Window(800, 600, "My window!"w, WindowContextType.Opengl);
 	window.show();
 	
-	Thread.sleep(500.msecs);
-	
-	
-	window.addOnDraw((Windowable window2) {
-		//writeln("drawing");
-		
-/*		Window window = cast(Window)window2;
-        IContext context = window.context;
-        if (context !is null) {
-            writeln("has context");
-            writeln("type: ", context.type);
-            writeln("toolkit version: ", context.toolkitVersion);
-            writeln("shading language version: ", context.shadingLanguageVersion);
-        } else {
-            //writeln("has not got context");
-			return;
-        }*/
-
-
-		if(cast(void*)glClearColor !is null)
-		{
-			//glClearColor(1,0,0,1);
-			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		}else
-		{
-			writeln("no gl context");
-		}
-		
-		/*glLoadIdentity();
+	window.addOnDraw((Windowable window2) 
+	{
+		glLoadIdentity();
+		glClearColor(1,0,1,1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glColor3f(0f, 1f, 0f);
+		/*glColor3f(0f, 1f, 0f);
 
 		glBegin(GL_TRIANGLES);
 		glVertex2f(-100, -100);
@@ -75,16 +50,30 @@ void main()
 		glVertex2f(100, 100);
 		glEnd();*/
 	});
+	
+	bool hitContext;
+	while(true) {
+		import core.thread : Thread;
+		import core.time : dur;
+		Window.messageLoopIteration();
 
-  while(true) {
-    import core.thread : Thread;
-    import core.time : dur;
-    Window.messageLoopIteration();
+		IContext context = window.context;
+		if (window.hasBeenClosed)
+			break;
+		else if (context !is null) {
+			if (!hitContext) {
+				context.activate;
+				
+				writeln("has context");
+				writeln("type: ", context.type);
+				writeln("toolkit version: ", context.toolkitVersion);
+				writeln("shading language version: ", context.shadingLanguageVersion);
+					
+				hitContext = true;
+			}
 
-    if (window.hasBeenClosed)
-        break;
-    else
-        window.onDraw();
-    //Thread.sleep(dur!"msecs"(25));
-  }
+			window.onDraw;
+		}
+		Thread.sleep(dur!"msecs"(25));
+	}
 }
