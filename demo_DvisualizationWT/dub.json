@@ -1,0 +1,19 @@
+{
+	"name": "dopenvg_demo_dwindow",
+	"description": "OpenVG test project",
+	"copyright": "Copyright © 2015, dom",
+	"authors": ["Dominik Schörkhuber"],
+	"email": ["dschoerk@gmx.at"],
+	"targetType": "executable",
+	"versions-x86_64": ["UseAmd64Impl"],
+	"dependencies": {
+		"de_window:interfaces": "~>0.1.0",
+		"de_window:platform": "~>0.1.0",
+		"de_image:mutable": ">=0.0.0",
+		"derelict-gl3": "~>1.0.12",
+		"dopenvg": "~>0.0.2",
+	},
+	"sourcePaths": [
+		"source"
+	],
+}

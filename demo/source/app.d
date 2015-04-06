@@ -95,7 +95,7 @@ void main()
 	}
 	
 	shape[] shapes;
-	foreach(i; iota(0,10000))
+	foreach(i; iota(0,100))
 	{
 		float scale = uniform(0.1, 1);
 		float x = uniform(0,640);
