@@ -26,14 +26,16 @@ import devisualization.window.window;
 import devisualization.window.interfaces.context;
 import derelict.opengl3.gl;
 import std.stdio;
+import core.thread;
 
 void main() 
 {
 	Window window = new Window(800, 600, "My window!"w, WindowContextType.Opengl);
 	window.show();
 	
-	//DerelictGL3.reload();
-
+	Thread.sleep(500.msecs);
+	
+	
 	window.addOnDraw((Windowable window2) {
 		//writeln("drawing");
 		
@@ -48,9 +50,19 @@ void main()
             //writeln("has not got context");
 			return;
         }*/
-			
-		//glLoadIdentity();
-		/*glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+		if(cast(void*)glClearColor !is null)
+		{
+			//glClearColor(1,0,0,1);
+			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}else
+		{
+			writeln("no gl context");
+		}
+		
+		/*glLoadIdentity();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glColor3f(0f, 1f, 0f);
 
 		glBegin(GL_TRIANGLES);
