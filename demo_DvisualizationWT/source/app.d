@@ -106,7 +106,7 @@ void init()
 	vgSetParameterfv(testFill, VG_PAINT_COLOR, 4, cast(float*)cfill);
 	vgSetPaint(testFill, VG_FILL_PATH);
 
-	foreach(i; iota(0,1))
+	foreach(i; iota(0,150))
 	{
 		float scale = uniform(0.1, 1);
 		float x = uniform(0,640);
