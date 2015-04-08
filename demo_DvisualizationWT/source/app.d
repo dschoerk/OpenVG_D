@@ -99,11 +99,11 @@ void init()
 	
 
 	auto testStroke = vgCreatePaint();
-	vgSetParameterfv(testStroke, VG_PAINT_COLOR, 4, cast(float*)cstroke);
+	vgSetParameterfv(testStroke, VG_PAINT_COLOR, 4, cast(float*) cstroke);
 	vgSetPaint(testStroke, VG_STROKE_PATH);
 
 	auto testFill = vgCreatePaint();
-	vgSetParameterfv(testFill, VG_PAINT_COLOR, 4, cast(float*)cfill);
+	vgSetParameterfv(testFill, VG_PAINT_COLOR, 4, cast(float*) cfill);
 	vgSetPaint(testFill, VG_FILL_PATH);
 
 	foreach(i; iota(0,150))
